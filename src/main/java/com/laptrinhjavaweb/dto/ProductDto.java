@@ -5,6 +5,8 @@ public class ProductDto{
 	
 	private Long product_id;
 	
+	private Long category_id;
+	
 	private String name_product;
 	
 	private Float price;
@@ -89,6 +91,14 @@ public class ProductDto{
 
 	public void setShape(String shape) {
 		this.shape = shape;
+	}
+
+	public Long getCategory_id() {
+		return category_id;
+	}
+
+	public void setCategory_id(Long category_id) {
+		this.category_id = category_id;
 	}
 
 }

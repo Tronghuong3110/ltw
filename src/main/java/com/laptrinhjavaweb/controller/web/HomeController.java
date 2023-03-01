@@ -34,7 +34,7 @@ public class HomeController {
 		ModelAndView mav = new ModelAndView("web/home");
 		List<SliderEntity> listSlider = sliderService.findAll();
 		List<CategoryEntity> listCategory = categoryService.findAll();
-		List<ProductDto> listProduct = productService.findAll();
+		List<ProductDto> listProduct = productService.getData();
 		mav.addObject("sliders", listSlider);
 		mav.addObject("categorys", listCategory);
 		mav.addObject("Products", listProduct);

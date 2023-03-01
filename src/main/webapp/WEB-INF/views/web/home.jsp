@@ -19,9 +19,9 @@
 			<h1 class="my-4">Sản phẩm</h1>
 			<div class="list-group">
 			
+			<!-- Danh sách category -->
 			<c:forEach var = "item" items="${categorys }">
-				<a href="<c:url value = '/san-pham/${item.id }'/>" class="list-group-item">${item.name}</a> 
-				<%-- <a href="/san-pham/${item.id }" class="list-group-item">${item.name}</a>  --%>
+				<a href="<c:url value = '/san-pham/${item.id }'/>" class="list-group-item">${item.name}</a>
 			</c:forEach>
 			
 			</div>
@@ -72,12 +72,11 @@
 					<c:forEach var = "item" items="${Products }" varStatus="loop">
 						<div class="col-lg-4 col-md-6 mb-4">
 							<div class="card h-100">
-								<a href="/chi-tiet-san-pham/${item.name_product }/${item.size }/${item.lo_ren}"><img class="card-img-top"
+								<a href="/chi-tiet-san-pham/${item.product_id }/${item.category_id}"><img class="card-img-top"
 									src="<c:url value = '/template/web/images/products/${item.img }' />" alt=""></a>
 								<div class="card-body">
 									<h4 class="card-title">
-										<a href="/chi-tiet-san-pham/${item.name_product }/${item.size }/${item.lo_ren}">${item.name_product } ${item.size } ${item.lo_ren } ${item.shape }</a> 
-										
+										<a href="<c:url value = '/chi-tiet-san-pham/${item.product_id}/${item.category_id}'/>">${item.name_product} ${item.size } ${item.lo_ren } ${item.shape }</a> 
 									</h4>
 									<h5>${item.price }</h5>
 									<p class="card-text">Lorem ipsum dolor sit amet, consectetur
@@ -101,8 +100,6 @@
 			<!-- /.row -->
 		</div>
 		<!-- /.col-lg-9 -->
-		
-		
 	</div>
 	<!-- /.row -->
       

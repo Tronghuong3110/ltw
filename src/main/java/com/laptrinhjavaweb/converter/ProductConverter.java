@@ -21,6 +21,7 @@ public class ProductConverter {
 		product.setProduct_id(productEntity.getId());
 		product.setShape(productEntity.getType().getName());
 		product.setSize(productEntity.getSize());
+		product.setCategory_id(productEntity.getCategoryEntity().getId());
 		return product;
 	}
 	

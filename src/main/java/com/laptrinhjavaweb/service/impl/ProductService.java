@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.laptrinhjavaweb.converter.ProductConverter;
@@ -19,7 +20,7 @@ public class ProductService implements IProductService{
 	private ProductRepository productRepository;
 	
 	@Override
-	public List<ProductDto> findAll() {
+	public List<ProductDto> getData() {
 		List<ProductEntity> list = productRepository.getData();
 		List<ProductDto> res = new ArrayList<>();
 		for(ProductEntity product : list) {
@@ -36,6 +37,27 @@ public class ProductService implements IProductService{
 			res.add(ProductConverter.toDTO(product));
 		}
 		return res;
+	}
+
+	@Override
+	public List<ProductDto> findAll(Pageable pageable) {
+		List<ProductEntity> list = productRepository.findAll(pageable).getContent();
+		List<ProductDto> products = new ArrayList<>();
+		for(ProductEntity product : list) {
+			products.add(ProductConverter.toDTO(product));
+		}
+		return products;
+	}
+
+	@Override
+	public Integer count() {
+		return (int) productRepository.count();
+	}
+
+	@Override
+	public ProductDto findOne(long id) {
+		ProductEntity entity = productRepository.findOne(id);
+		return  ProductConverter.toDTO(entity);
 	}
 
 }

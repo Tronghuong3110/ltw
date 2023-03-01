@@ -10,12 +10,12 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarResponsive">
 			<ul class="navbar-nav ml-auto">
-				<li class="nav-item active"><a class="nav-link" href="#">Trang chủ
+				<li class="nav-item active"><a class="nav-link" href="<c:url value = '/'/>">Trang chủ
 						<span class="sr-only">(current)</span>
 				</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">Sản phẩm</a></li>
+				<li class="nav-item"><a class="nav-link" href="<c:url value = '/danh-sach-san-pham'/>">Sản phẩm</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">Giỏ hàng</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">Liên hệ</a></li>
+				<li class="nav-item"><a class="nav-link" href="#footer">Liên hệ</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">Đăng nhập</a></li>
 			</ul>
 		</div>

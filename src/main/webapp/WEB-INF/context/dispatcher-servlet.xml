@@ -17,7 +17,8 @@
         http://www.springframework.org/schema/context/spring-context-4.3.xsd ">
 
 	<context:component-scan
-		base-package="com.laptrinhjavaweb.controller" />
+		base-package="com.laptrinhjavaweb.controller,
+						com.laptrinhjavaweb.api" />
 	<mvc:annotation-driven />
 
 	<bean

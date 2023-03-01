@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <body>
   <!-- Page Heading -->
-      <h1 class="my-4">Danh sách sản phẩm
+      <h1 class="my-4">Danh sách ${Products[0].name_product}
       </h1>
       <div class="row">
       	<c:forEach var = "item" items="${Products }" varStatus="loop">

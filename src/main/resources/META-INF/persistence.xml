@@ -6,5 +6,6 @@
 		<class>com.laptrinhjavaweb.entity.TypeEntity</class>
 		<class>com.laptrinhjavaweb.entity.ProductEntity</class>
 		<class>com.laptrinhjavaweb.entity.CategoryEntity</class>
+		<class>com.laptrinhjavaweb.entity.RoleEntity</class>
 	</persistence-unit>
 </persistence>

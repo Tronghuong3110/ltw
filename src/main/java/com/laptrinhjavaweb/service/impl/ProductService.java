@@ -27,11 +27,12 @@ public class ProductService implements IProductService{
 			res.add(ProductConverter.toDTO(product));
 		}
 		return res;
-	}
+	} 
 
 	@Override
-	public List<ProductDto> findByCategoryId(Long categoryId) {
-		List<ProductEntity> list = productRepository.findAllByCategoryId(categoryId);
+	public List<ProductDto> findByCategoryCode(String code) {
+		List<ProductEntity> list = productRepository.findAllByCategoryCode(code);
+//		List<ProductEntity> list = productRepository.findAll();
 		List<ProductDto> res = new ArrayList<>();
 		for(ProductEntity product : list) {
 			res.add(ProductConverter.toDTO(product));
@@ -40,7 +41,7 @@ public class ProductService implements IProductService{
 	}
 
 	@Override
-	public List<ProductDto> findAll(Pageable pageable) {
+	public List<ProductDto> findAllPageable(Pageable pageable) {
 		List<ProductEntity> list = productRepository.findAll(pageable).getContent();
 		List<ProductDto> products = new ArrayList<>();
 		for(ProductEntity product : list) {
@@ -58,6 +59,27 @@ public class ProductService implements IProductService{
 	public ProductDto findOne(long id) {
 		ProductEntity entity = productRepository.findOne(id);
 		return  ProductConverter.toDTO(entity);
+	}
+
+	@Override
+	public List<ProductDto> findByCategoryId(Long id) {
+		List<ProductEntity> list = productRepository.findAllByCategoryId(id);
+		List<ProductDto> res = new ArrayList<>();
+		for(ProductEntity product : list) {
+			res.add(ProductConverter.toDTO(product));
+		}
+		return res;
+	}
+
+	@Override
+	public List<ProductDto> findAll() {
+		List<ProductEntity> list = productRepository.findAll();
+		List<ProductDto> res = new ArrayList<>();
+		for(ProductEntity product : list) {
+			res.add(ProductConverter.toDTO(product));
+		}
+		return res;
+		
 	}
 
 }

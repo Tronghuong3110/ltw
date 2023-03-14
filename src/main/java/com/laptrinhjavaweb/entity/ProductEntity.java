@@ -1,9 +1,8 @@
 package com.laptrinhjavaweb.entity;
 
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,10 +10,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -47,15 +44,18 @@ public class ProductEntity {
 	private String thumbnail;
 	
 	// kết nối với n - 1 voi category
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "category_Id")
 	private CategoryEntity categoryEntity;
 	
 	//ket noi n - 1 voi typeEntity
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "type_id")
 	private TypeEntity type;
-//	fetch = FetchType.LAZY
+	
+	// 1 - 1 voi cart item - cart item dai dien cho 1 san pham trong gio hang
+	@OneToOne(mappedBy = "product", fetch = FetchType.LAZY)
+	private CartItem cartItem;
 	
 	public String getName_product() {
 		return name_product;
@@ -132,5 +132,14 @@ public class ProductEntity {
 	public void setType(TypeEntity type) {
 		this.type = type;
 	}
+
 	
+	public CartItem getCartItem() {
+		return cartItem;
+	}
+
+	public void setCartItem(CartItem cartItem) {
+		this.cartItem = cartItem;
+	}
+
 }

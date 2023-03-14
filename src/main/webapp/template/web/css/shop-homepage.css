@@ -8,6 +8,17 @@ body {
   padding-top: 54px;
 }
 
+a{
+  text-decoration: none;
+  color: #000;
+  
+}
+
+a:hover {
+	text-decoration: none;
+	color: rgba(10, 6, 244, 0.067);
+}
+
 .img {
   object-fit: cover;
   width: 900px;
@@ -18,5 +29,9 @@ body {
   body {
     padding-top: 56px;
   }
+}
+
+.js-delete-product:hover{
+  scale: 1.3;
 }
 

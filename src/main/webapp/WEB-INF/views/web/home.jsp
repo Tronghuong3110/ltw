@@ -15,14 +15,14 @@
 
 <body>
 	<div class="row">
-		<div class="col-lg-3">
-			<h1 class="my-4">Sản phẩm</h1>
+		<div class="col-lg-3" style="margin-top: 24px;">
+			<h2 class="card-header bg-primary text-white text-uppercase" style="font-size: 1.5rem !important;"><i class="fa fa-list"></i> Sản phẩm</h2>
 			<div class="list-group">
 			
 			<!-- Danh sách category -->
-			<c:forEach var = "item" items="${categorys }">
-				<a href="<c:url value = '/san-pham/${item.id }'/>" class="list-group-item">${item.name}</a>
-			</c:forEach>
+				<c:forEach var = "item" items="${categorys }">
+					<a href="<c:url value = '/san-pham/${item.code }'/>" class="list-group-item">${item.name}</a>
+				</c:forEach>
 			
 			</div>
 		</div>
@@ -68,15 +68,15 @@
 
 		<!-- danh sách sản phẩm -->
 			<div class="row">
-				
+				<!-- /chi-tiet-san-pham/${item.product_id }/${item.category_id} -->
 					<c:forEach var = "item" items="${Products }" varStatus="loop">
 						<div class="col-lg-4 col-md-6 mb-4">
 							<div class="card h-100">
-								<a href="/chi-tiet-san-pham/${item.product_id }/${item.category_id}"><img class="card-img-top"
+								<a href="/chi-tiet-san-pham?catrgoryid=${item.category_id}&id=${item.product_id}" title="View Product"><img class="card-img-top"
 									src="<c:url value = '/template/web/images/products/${item.img }' />" alt=""></a>
 								<div class="card-body">
 									<h4 class="card-title">
-										<a href="<c:url value = '/chi-tiet-san-pham/${item.product_id}/${item.category_id}'/>">${item.name_product} ${item.size } ${item.lo_ren } ${item.shape }</a> 
+										<a href="/chi-tiet-san-pham?catrgoryid=${item.category_id}&id=${item.product_id}" title="View Product">${item.name_product} ${item.size } ${item.lo_ren } ${item.shape }</a> 
 									</h4>
 									<h5>${item.price }</h5>
 									<p class="card-text">Lorem ipsum dolor sit amet, consectetur
@@ -102,6 +102,15 @@
 		<!-- /.col-lg-9 -->
 	</div>
 	<!-- /.row -->
-      
+
+	<script>
+		// $(function() {
+		// 	$('.btn-product').click(function() {
+		// 		var productId = $(this).data('product-id');
+		// 		var categoryId = $(this).data('category-id')
+		// 		window.location.href = '/chi-tiet-san-pham?id=' + productId + "&catrgoryid=" + categoryId;
+		// 	});
+		// });
+	</script>
 </body>
 </html>

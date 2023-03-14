@@ -25,7 +25,7 @@ public class ProductController {
 	public ModelAndView homePage(@RequestParam int limit, @RequestParam int page) {
 		ModelAndView mav = new ModelAndView("/admin/product/list");
 		Pageable pageable = new PageRequest(page-1, limit);
-		List<ProductDto> products = productService.findAll(pageable);
+		List<ProductDto> products = productService.findAllPageable(pageable);
 		Integer totalItem = productService.count();
 		PageInfor pageInfor = new PageInfor(limit, page, totalItem);
 		mav.addObject("Products", products);

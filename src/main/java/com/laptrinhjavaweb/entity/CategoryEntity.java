@@ -30,7 +30,7 @@ public class CategoryEntity {
 	private String code;
 	
 	// kết nối 1 - n với bảng product
-	@OneToMany(mappedBy = "categoryEntity")
+	@OneToMany(mappedBy = "categoryEntity", fetch = FetchType.LAZY)
 	private List<ProductEntity> products = new ArrayList<>();
 	
 	public String getName() {

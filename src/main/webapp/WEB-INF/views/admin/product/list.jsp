@@ -16,7 +16,7 @@
 			<div class="main-content-inner">
 				<div class="breadcrumbs ace-save-state" id="breadcrumbs">
 					<ul class="breadcrumb">
-						<li><i class="ace-icon fa fa-home home-icon"></i> <a href="#">Trang
+						<li><i class="ace-icon fa fa-home home-icon"></i> <a href="/admin-home">Trang
 								chủ</a></li>
 					</ul>
 					<!-- /.breadcrumb -->
@@ -101,7 +101,7 @@
             startPage: currentPage,
             onPageClick: function (event, page) {
                 if(page != currentPage) {
-                	$('#limit').val(5);
+                	$('#limit').val(3);
 					$('#page').val(page); 
                 	$('#formSubmit').submit();
                 }
